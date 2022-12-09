@@ -13,7 +13,7 @@ function Aleatoire() {
 
     for (let i = 0, l = oldCarte.length; i < l; i++) {
         let random = Math.floor(Math.random() * oldCarte.length)
-        newCarte.push(`../${oldCarte[random]}`)
+        newCarte.push(`${oldCarte[random]}`)
         oldCarte = oldCarte.filter(el => el !== oldCarte[random])
     }
     return newCarte
