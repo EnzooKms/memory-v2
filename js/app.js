@@ -24,7 +24,7 @@ console.log(value);
 
 for (let i = 0; i < value.length; i++) {
     const element = value[i]
-    div[i].style.backgroundImage = `url(/public/${element})`
+    div[i].style.backgroundImage = `url(${element})`
     flipCard[i].setAttribute("data-id", element)
     console.log(flipCard[i].dataset);
     flipCard[i].addEventListener("click", () => {
