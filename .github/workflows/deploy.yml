@@ -10,4 +10,20 @@ jobs:
         with:
           # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
           node-version: 16
-      - run: ./deploy.sh
+      - name: install dependecy
+      - run: npm install
+
+      - name: create build
+      - run: npm run build
+
+      - name: configure for github pages
+      - run: cd dist
+      - run: echo > .nojekyll
+      - run: git init 
+      - run: git checkout -B main
+      - run: git add -A
+      - run: git commit -m 'deploy'
+
+      - name: push
+      - run: git push -f git@github.com:EnzooKms/memory-v2.git main:gh-pages
+      - run: cd -
