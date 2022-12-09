@@ -1,0 +1,13 @@
+name: deploy site on gh-pages
+
+on: [push]
+jobs:
+  run-deploy-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.5.1
+        with:
+          # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+          node-version: 16
+      - run: ./deploy.sh
