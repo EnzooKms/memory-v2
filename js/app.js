@@ -20,15 +20,14 @@ function Aleatoire() {
 }
 
 const value = [...Aleatoire(valeurs), ...Aleatoire(valeurs)]
-console.log(value);
 
 for (let i = 0; i < value.length; i++) {
     const element = value[i]
     div[i].style.backgroundImage = `url(${element})`
     flipCard[i].setAttribute("data-id", element)
     console.log(flipCard[i].dataset);
-    flipCard[i].addEventListener("click", () => {
-        Clicker(i)
+    flipCard[i].addEventListener("click", (e) => {
+        Clicker(i, e.currentTarget)
     })
 
 }
@@ -37,42 +36,54 @@ let last;
 let countClick = 0
 const Collection = []
 
-function Clicker(index) {
+function Clicker(index, current) {
     if (last === flipCard[index]) {
-        // alert("vous avez clicker sur le même")
+        showError(flipCard[index])
         return
     }
     if (Collection.find(el => el === flipCard[index])) {
-        // alert('Vous avez déjà trouvé celui là')
+        showError(flipCard[index])
         return
     }
 
     countClick++
-    flipCard[index].classList.add("flip-card-click")
+    flipCard[index].classList.add("flip-card-click");
 
     if (countClick === 2) {
-        countClick = 0
+
         if (last.dataset.id === flipCard[index].dataset.id) {
+            console.log("test")
             Collection.push(...[flipCard[index], last])
             last = undefined
+            countClick = 0
             return
         }
         else {
-            console.log(true);
             setTimeout(() => {
 
                 for (const element of flipCard) {
                     if (!Collection.find(el => el === element)) {
+                        element.classList.remove("flip-card-error")
                         element.classList.remove("flip-card-click")
                     }
                 }
+                countClick = 0
                 last = undefined
                 return
-            }, 1.25 * 1000);
+            }, 1.25 * 700);
         }
-    }
-    else {
+        
+    } else if (countClick > 2) {
+        flipCard[index].classList.remove("flip-card-click")
+        showError(flipCard[index]);  
+    } else {
         last = flipCard[index]
     }
-    console.log(Collection, countClick);
+}
+
+function showError(el) {
+    el.classList.add('flip-card-error');
+    setTimeout(() => {
+        el.classList.remove('flip-card-error');
+    }, 500)
 }
