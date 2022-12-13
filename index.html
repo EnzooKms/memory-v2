@@ -4,16 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/memory-v2/vite.svg">
+  <meta name="description" content="Memory de Eden School">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Memory</title>
-  <script type="module" crossorigin src="/memory-v2/assets/index.42b164a7.js"></script>
-  <link rel="stylesheet" href="/memory-v2/assets/index.1a3f8681.css">
+  <script type="module" crossorigin src="/memory-v2/assets/index.71b92ee1.js"></script>
+  <link rel="stylesheet" href="/memory-v2/assets/index.b3d529a7.css">
 </head>
 
 <body>
 
   <img src="/memory-v2/assets/bandeau.15040499.png" alt="image bandeau" id="bandeau">
+
+  <h1>Testez votre mémoire !</h1>
+  <h2>Saurez-vous retrouvez toutes les paires de cartes identiques<br>en un minimum de temps !?</h2>
 
   <div id="container">
     <div class="flip-card">
@@ -90,6 +94,12 @@
     </div>
   </div>
 
+  <div id="winModalContainer" class="win-modal">
+    <div id= "winModal" class="win-modal-content">
+      <p>Bien-joué ! N'oublie pas de récuperer ton indice</p>
+      <input type="button" value="Rejouer" id="restartButton">
+    </div>
+  </div>
   
 </body>
 
