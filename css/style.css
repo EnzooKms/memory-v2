@@ -27,19 +27,18 @@ h2 {
 }
 
 p {
+    text-align: center;
     font-family: "Roboto", sans-serif;
     color: #284183;
     font-size: 30px;
-    margin-left: 25%;
 }
 
 input {
-    margin-left: 40%;
     background-color: #fdde12;
     border: none;
-    border-radius: 5px;
-    height: 5vh;
-    width: 5vw;
+    border-radius: 6px;
+    height: 6vh;
+    width: 6vw;
     color: #284183;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
@@ -54,7 +53,7 @@ input {
 
 #container {
     height: 80%;
-    width: 60%;
+    width: 50%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -132,12 +131,15 @@ input {
 .win-modal-content {
     background-color: #fefefe;
     position: absolute;
-    margin: auto;
     padding: 100px;
     animation: forwards 1s win;
     top: -100%;
     border: 1px solid #888;
-    width: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 img {

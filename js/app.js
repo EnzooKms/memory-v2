@@ -28,7 +28,6 @@ function play() {
         const element = value[i]
         div[i].style.backgroundImage = `url(${element})`
         flipCard[i].setAttribute("data-id", element)
-        console.log(flipCard[i].dataset);
         flipCard[i].addEventListener("click", (e) => {
             Clicker(i)
         })
@@ -58,7 +57,6 @@ function play() {
         if (countClick === 2) {
 
             if (last.dataset.id === flipCard[index].dataset.id) {
-                console.log("test")
                 Collection.push(...[flipCard[index], last])
                 last = undefined
                 countClick = 0
@@ -107,23 +105,22 @@ function play() {
             const restartButton = document.getElementById('restartButton');
 
             winModalContainer.style.display = "block";
-            winModal.classList.add('win-modal-content-active');
 
-            restartButton.addEventListener('click', () => {
-                for (const element of flipCard) {
-                        element.classList.remove("flip-card-error")
-                        element.classList.remove("flip-card-click")
-                }
-                play()
-                winModalContainer.style.display = 'none';
-                winModal.classList.add('win-modal-content-active');
-                Collection = [];
-                value = [];
-                countClick = 0
-                last = undefined
-                return
-            })
+            restartButton.addEventListener('click', reset);
         }
+    }
+
+    function reset() {
+        for (const element of flipCard) {
+            element.classList.remove("flip-card-error")
+            element.classList.remove("flip-card-click")
+        }
+        play()
+        winModalContainer.style.display = 'none';
+        Collection = [];
+        value = [];
+        countClick = 0
+        last = undefined
     }
 }
 
