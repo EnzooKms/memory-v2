@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    overflow-x: none;
+    overflow-x: hidden;
 }
 
 h1, h2 {
