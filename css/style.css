@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
-* {
-    overflow-x: hidden;
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -12,6 +8,7 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    overflow-x: hidden;
 }
 
 h1, h2 {
@@ -128,8 +125,8 @@ input {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+    overflow-x: hidden;
 }
 
 .win-modal-content {
@@ -144,6 +141,7 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 img {
